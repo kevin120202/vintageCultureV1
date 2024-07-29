@@ -10,7 +10,7 @@ function Home() {
     return (
         <>
             {isLoading ? (<Loader />) : isError ? (<Message variant='danger'>
-                {isError?.data?.message || isError.error}
+                Error...
             </Message>) : (<><h1>Latest Products</h1>
                 <Row>
                     {products.map(product => (
