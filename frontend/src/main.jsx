@@ -13,11 +13,13 @@ import {
     RouterProvider,
 } from 'react-router-dom';
 import Home from './screens/Home'
+import ProductScreen from './screens/ProductScreen.jsx'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<App />}>
             <Route index={true} path="/" element={<Home />} />
+            <Route path="/product/:id" element={<ProductScreen />} />
         </Route>
     )
 )
@@ -25,5 +27,5 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <RouterProvider router={router} />
-    </React.StrictMode>,
+    </React.StrictMode>
 )

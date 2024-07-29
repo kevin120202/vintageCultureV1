@@ -14,6 +14,11 @@ app.get("/api/products", (req, res, next) => {
     res.json(products)
 })
 
+app.get("/api/products/:id", (req, res, next) => {
+    const product = products.find(item => item._id === req.params.id)
+    res.status(200).json(product)
+})
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 })
