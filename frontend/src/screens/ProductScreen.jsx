@@ -16,7 +16,6 @@ function ProductScreen() {
         fetchProduct()
     }, [id])
 
-    console.log(product);
 
     return (
         <>

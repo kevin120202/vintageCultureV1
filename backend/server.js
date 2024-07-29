@@ -3,22 +3,18 @@ import dotenv from "dotenv"
 dotenv.config()
 const port = process.env.PORT || 8000
 import mongoose from "mongoose"
-import products from "./data/products.js"
-
 const app = express()
 
-app.get("/", (req, res, next) => {
-    res.send("hello")
-})
+// Routers
+import ProductRouter from './routes/productRouter.js'
+import { errorHandler, notFound } from "./middleware/errorMiddleware.js"
 
-app.get("/api/products", (req, res, next) => {
-    res.json(products)
-})
+// Routes
+app.use("/api/products", ProductRouter)
 
-app.get("/api/products/:id", (req, res, next) => {
-    const product = products.find(item => item._id === req.params.id)
-    res.status(200).json(product)
-})
+// Error handler
+app.use(notFound)
+app.use(errorHandler)
 
 try {
     await mongoose.connect(process.env.MONGO_URI)
