@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from 'react-bootstrap'
-import axios from 'axios';
 
 function Product({ product }) {
     // const [product, setProduct] = useState()
