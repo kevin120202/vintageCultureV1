@@ -4,13 +4,14 @@ dotenv.config()
 const port = process.env.PORT || 8000
 import mongoose from "mongoose"
 const app = express()
-
+import { errorHandler, notFound } from "./middleware/errorMiddleware.js"
 // Routers
 import ProductRouter from './routes/productRouter.js'
-import { errorHandler, notFound } from "./middleware/errorMiddleware.js"
+import userRouter from "./routes/userRoutes.js"
 
 // Routes
 app.use("/api/products", ProductRouter)
+app.use("/api/users", userRouter)
 
 // Error handler
 app.use(notFound)
