@@ -9,6 +9,10 @@ import { errorHandler, notFound } from "./middleware/errorMiddleware.js"
 import ProductRouter from './routes/productRouter.js'
 import userRouter from "./routes/userRoutes.js"
 
+// Body parser middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 // Routes
 app.use("/api/products", ProductRouter)
 app.use("/api/users", userRouter)
