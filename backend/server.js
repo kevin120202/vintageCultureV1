@@ -5,6 +5,9 @@ const port = process.env.PORT || 8000
 import mongoose from "mongoose"
 const app = express()
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js"
+import cookieParser from "cookie-parser"
+
+
 // Routers
 import ProductRouter from './routes/productRouter.js'
 import userRouter from "./routes/userRoutes.js"
@@ -12,6 +15,9 @@ import userRouter from "./routes/userRoutes.js"
 // Body parser middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// Cookie parser
+app.use(cookieParser())
 
 // Routes
 app.use("/api/products", ProductRouter)
