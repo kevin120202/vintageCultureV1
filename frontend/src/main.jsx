@@ -7,6 +7,8 @@ import "./assets/styles/bootstrap.custom.css"
 import "./assets/styles/index.css"
 import { Provider } from 'react-redux'
 import store from './store.js'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import {
     createBrowserRouter,
